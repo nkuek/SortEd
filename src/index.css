@@ -27,4 +27,9 @@ button {
     cursor: pointer;
     margin: 0em 1em;
     padding: .5em 1em;
+    border-radius: 3px;
+}
+
+input {
+    margin: 0;
 }

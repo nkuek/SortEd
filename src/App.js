@@ -10,7 +10,8 @@ const generateRandomInt = (min, max) => {
 function App() {
     const [array, setArray] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [arrayLength, setArrayLength] = useState(200);
+    const [arrayLength, setArrayLength] = useState(50);
+    const [animationSpeed, setAnimationSpeed] = useState(10);
 
     const resetArray = () => {
         const arrayBars = document.getElementsByClassName('array-bar');
@@ -37,12 +38,15 @@ function App() {
                 resetArray={resetArray}
                 array={array}
                 setLoading={setLoading}
+                animationSpeed={animationSpeed}
             />
             <SortingVisualizer
-                resetArray={resetArray}
+                arrayLength={arrayLength}
                 setArrayLength={setArrayLength}
                 array={array}
                 loading={loading}
+                animationSpeed={animationSpeed}
+                setAnimationSpeed={setAnimationSpeed}
             />
         </>
     );

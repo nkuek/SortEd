@@ -3,7 +3,7 @@ import { mergeSortAnimations } from '../SortingAlgorithms/MergeSort';
 import { bubbleSortAnimations } from '../SortingAlgorithms/BubbleSort';
 import './Navigation.css';
 
-const Navigation = ({ resetArray, array, setLoading }) => {
+const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
     const [sorted, setSorted] = useState(false);
     const [sorting, setSorting] = useState(false);
 
@@ -13,10 +13,14 @@ const Navigation = ({ resetArray, array, setLoading }) => {
                 button.disabled = true;
                 button.style.cursor = 'initial';
             });
+            document.querySelectorAll('input').forEach((input) => {
+                input.disabled = true;
+                input.style.cursor = 'initial';
+            });
         } else {
-            document.querySelectorAll('button').forEach((button) => {
-                button.disabled = false;
-                button.style.cursor = 'pointer';
+            document.querySelectorAll('input').forEach((input) => {
+                input.disabled = false;
+                input.style.cursor = 'pointer';
             });
         }
     }, [sorting]);
@@ -24,7 +28,6 @@ const Navigation = ({ resetArray, array, setLoading }) => {
     const color1 = 'red';
     const color2 = 'black';
     const sortedColor = 'teal';
-    const ANIMATION_SPEED_MS = 3;
 
     const animator = (animations, colorChangeLength) => {
         const arrayBars = document.getElementsByClassName('array-bar');
@@ -38,25 +41,25 @@ const Navigation = ({ resetArray, array, setLoading }) => {
                 setTimeout(() => {
                     barOneStyle.backgroundColor = color;
                     barTwoStyle.backgroundColor = color;
-                }, i * ANIMATION_SPEED_MS);
+                }, i * animationSpeed);
             } else {
                 setTimeout(() => {
                     const [barOneIdx, newHeight] = animations[i];
                     const barOneStyle = arrayBars[barOneIdx].style;
                     barOneStyle.height = `${newHeight}px`;
-                }, i * ANIMATION_SPEED_MS);
+                }, i * animationSpeed);
             }
         }
         for (let i = 0; i < arrayBars.length; i++) {
             setTimeout(() => {
                 arrayBars[i].style.backgroundColor = sortedColor;
-            }, ANIMATION_SPEED_MS * animations.length);
+            }, animationSpeed * animations.length);
         }
 
         setTimeout(() => {
             setSorting(false);
             setSorted(true);
-        }, ANIMATION_SPEED_MS * animations.length);
+        }, animationSpeed * animations.length);
     };
 
     const mergeSort = () => {
