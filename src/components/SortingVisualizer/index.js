@@ -3,7 +3,11 @@ import './SortingVisualizer.css';
 const SortingVisualizer = ({ array, loading }) => {
     return (
         <>
-            {loading && <div className="loading">Loading...</div>}
+            {loading && (
+                <div className="loading-container">
+                    <div className="loading">Loading...</div>
+                </div>
+            )}
             <div className="array-container">
                 {array.map((value, idx) => (
                     <div
