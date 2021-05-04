@@ -1,0 +1,19 @@
+.array-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: calc(100% - 60px);
+}
+
+.loading {
+    text-align: center;
+    font-weight: 700
+}
+
+.array-bar {
+    display: flex;
+    width: 4px;
+    margin: 0px 1px;
+    background-color: black;
+    transition: 200ms height
+}
