@@ -26,6 +26,7 @@
     flex-direction: column;
     position: absolute;
     z-index: 1;
+    margin-top: 1em;
 }
 
 .array-size-container > label {

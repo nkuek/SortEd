@@ -8,6 +8,7 @@ const generateRandomInt = (min, max) => {
 };
 
 function App() {
+    document.body.style.height = `${window.innerHeight}px`;
     const [array, setArray] = useState([]);
     const [loading, setLoading] = useState(false);
     const [arrayLength, setArrayLength] = useState(50);
@@ -20,7 +21,7 @@ function App() {
         }
         const array = [];
         for (let i = 0; i < arrayLength; i++) {
-            array.push(generateRandomInt(50, 1000));
+            array.push(generateRandomInt(50, window.innerHeight * 0.8));
         }
         setArray(array);
     };

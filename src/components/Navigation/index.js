@@ -18,9 +18,13 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
                 input.style.cursor = 'initial';
             });
         } else {
-            document.querySelectorAll('input').forEach((input) => {
-                input.disabled = false;
-                input.style.cursor = 'pointer';
+            document.querySelectorAll('button').forEach((button) => {
+                button.disabled = false;
+                button.style.cursor = 'pointer';
+            });
+            document.querySelectorAll('input').forEach((button) => {
+                button.disabled = false;
+                button.style.cursor = 'pointer';
             });
         }
     }, [sorting]);
@@ -41,31 +45,31 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
                 setTimeout(() => {
                     barOneStyle.backgroundColor = color;
                     barTwoStyle.backgroundColor = color;
-                }, i * animationSpeed);
+                }, i * Math.abs(animationSpeed));
             } else {
                 setTimeout(() => {
                     const [barOneIdx, newHeight] = animations[i];
                     const barOneStyle = arrayBars[barOneIdx].style;
                     barOneStyle.height = `${newHeight}px`;
-                }, i * animationSpeed);
+                }, i * Math.abs(animationSpeed));
             }
         }
         for (let i = 0; i < arrayBars.length; i++) {
             setTimeout(() => {
                 arrayBars[i].style.backgroundColor = sortedColor;
-            }, animationSpeed * animations.length);
+            }, Math.abs(animationSpeed) * animations.length);
         }
 
         setTimeout(() => {
             setSorting(false);
             setSorted(true);
-        }, animationSpeed * animations.length);
+        }, Math.abs(animationSpeed) * animations.length);
     };
 
     const mergeSort = () => {
+        if (sorted) resetArray();
         setSorting(true);
         setLoading(true);
-        if (sorted) resetArray();
         setTimeout(() => {
             setLoading(false);
             const animations = mergeSortAnimations(array);
@@ -74,9 +78,9 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
     };
 
     const bubbleSort = () => {
+        if (sorted) resetArray();
         setSorting(true);
         setLoading(true);
-        if (sorted) resetArray();
         setTimeout(() => {
             setLoading(false);
             const animations = bubbleSortAnimations(array);

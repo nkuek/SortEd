@@ -22,9 +22,9 @@ const SortingVisualizer = ({
                     <input
                         onChange={(e) => setArrayLength(e.target.value)}
                         type="range"
-                        min="20"
-                        max="200"
-                        step="15"
+                        min="10"
+                        max="100"
+                        step="10"
                         value={array.length}
                     ></input>
                 </div>
@@ -33,9 +33,9 @@ const SortingVisualizer = ({
                     <input
                         onChange={(e) => setAnimationSpeed(e.target.value)}
                         type="range"
-                        min="5"
-                        max="500"
-                        step="100"
+                        min="-301"
+                        max="1"
+                        step="-50"
                         value={animationSpeed}
                     ></input>
                 </div>
