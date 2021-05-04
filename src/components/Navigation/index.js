@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
-import { mergeSortAnimations } from '../SortingAlgorithms/MergeSort';
-import { bubbleSortAnimations } from '../SortingAlgorithms/BubbleSort';
+import {
+    mergeSortAnimations,
+    bubbleSortAnimations,
+    insertionSortAnimations,
+} from '../SortingAlgorithms/';
 import './Navigation.css';
 
 const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
@@ -9,6 +12,7 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
 
     useEffect(() => {
         if (sorting) {
+            // disable all buttons and inputs while sorting animations are running
             document.querySelectorAll('button').forEach((button) => {
                 button.disabled = true;
                 button.style.cursor = 'initial';
@@ -18,6 +22,7 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
                 input.style.cursor = 'initial';
             });
         } else {
+            // reenable all buttons and inputs once animations are complete
             document.querySelectorAll('button').forEach((button) => {
                 button.disabled = false;
                 button.style.cursor = 'pointer';
@@ -34,10 +39,15 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
     const sortedColor = 'teal';
 
     const animator = (animations, colorChangeLength) => {
+        // grab all DOM array-bar elements
         const arrayBars = document.getElementsByClassName('array-bar');
         for (let i = 0; i < animations.length; i++) {
+            // the color change element will be different depending on the sorting algo
+            // denoted by the colorChangeLength
+            // see individual sorting algos for more details
             const isColorChange = i % colorChangeLength < 2;
             if (isColorChange) {
+                // animations[i] contains different elements depending on if it is a color change element or not
                 const [barOneIdx, barTwoIdx] = animations[i];
                 const barOneStyle = arrayBars[barOneIdx].style;
                 const barTwoStyle = arrayBars[barTwoIdx].style;
@@ -48,6 +58,7 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
                 }, i * Math.abs(animationSpeed));
             } else {
                 setTimeout(() => {
+                    // notice how animations[i][1] is different than above code
                     const [barOneIdx, newHeight] = animations[i];
                     const barOneStyle = arrayBars[barOneIdx].style;
                     barOneStyle.height = `${newHeight}px`;
@@ -55,21 +66,35 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
             }
         }
         for (let i = 0; i < arrayBars.length; i++) {
+            // changes color of all bars once sorting is complete
             setTimeout(() => {
                 arrayBars[i].style.backgroundColor = sortedColor;
             }, Math.abs(animationSpeed) * animations.length);
         }
 
         setTimeout(() => {
+            // triggers useEffect above to reenable buttons and inputs
             setSorting(false);
+            // triggers resetArray function on next button click
             setSorted(true);
         }, Math.abs(animationSpeed) * animations.length);
     };
 
-    const mergeSort = () => {
-        if (sorted) resetArray();
+    const resetState = () => {
+        if (sorted) {
+            resetArray();
+            setSorted(false);
+        }
         setSorting(true);
+        // useful for better UX for slower algos like bubble and insertion sort
+        // triggers loading animation
         setLoading(true);
+    };
+
+    console.log(array);
+
+    const mergeSort = () => {
+        resetState();
         setTimeout(() => {
             setLoading(false);
             const animations = mergeSortAnimations(array);
@@ -78,14 +103,21 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
     };
 
     const bubbleSort = () => {
-        if (sorted) resetArray();
-        setSorting(true);
-        setLoading(true);
+        resetState();
         setTimeout(() => {
             setLoading(false);
             const animations = bubbleSortAnimations(array);
             animator(animations, 4);
-        }, 100);
+        }, 200);
+    };
+
+    const insertionSort = () => {
+        resetState();
+        setTimeout(() => {
+            setLoading(false);
+            const animations = insertionSortAnimations(array);
+            animator(animations, 4);
+        }, 200);
     };
 
     return (
@@ -104,10 +136,12 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
                 <button onClick={bubbleSort} className="merge-sort">
                     Bubble
                 </button>
+                <button onClick={insertionSort} className="merge-sort">
+                    Insertion{' '}
+                </button>
                 <button onClick={mergeSort} className="merge-sort">
                     Merge
                 </button>
-                <button className="merge-sort">Insertion </button>
                 <button className="merge-sort">Quick</button>
                 <button className="merge-sort">Heap</button>
             </div>

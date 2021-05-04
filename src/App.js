@@ -13,7 +13,7 @@ function App() {
     const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
     const [array, setArray] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [arrayLength, setArrayLength] = useState(isMobile ? 20 : 50);
+    const [arrayLength, setArrayLength] = useState(30);
     const [animationSpeed, setAnimationSpeed] = useState(10);
 
     const resetArray = () => {
@@ -27,6 +27,11 @@ function App() {
         }
         setArray(array);
     };
+
+    useEffect(() => {
+        if (isMobile) setArrayLength(10);
+        else setArrayLength(30);
+    }, [isMobile]);
 
     useEffect(() => {
         resetArray();
