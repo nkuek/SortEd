@@ -61,11 +61,13 @@ const Navigation = ({ resetArray, array, setLoading }) => {
 
     const mergeSort = () => {
         setSorting(true);
+        setLoading(true);
         if (sorted) resetArray();
         setTimeout(() => {
+            setLoading(false);
             const animations = mergeSortAnimations(array);
             animator(animations, 3);
-        }, 100);
+        }, 300);
     };
 
     const bubbleSort = () => {

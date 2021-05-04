@@ -23,7 +23,7 @@
 
 .array-bar {
     display: flex;
-    width: 4px;
+    width: 10px;
     margin: 0px 1px;
     background-color: black;
     transition: 200ms height
