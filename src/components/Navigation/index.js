@@ -97,7 +97,7 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
                         resetArray();
                     }}
                 >
-                    Randomize Array
+                    New Array
                 </button>
             </div>
             <div className="sorting-container">

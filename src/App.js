@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Navigation from './components/Navigation';
 import SortingVisualizer from './components/SortingVisualizer';
+import { useMediaQuery } from 'react-responsive';
 
 const generateRandomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -9,9 +10,10 @@ const generateRandomInt = (min, max) => {
 
 function App() {
     document.body.style.height = `${window.innerHeight}px`;
+    const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
     const [array, setArray] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [arrayLength, setArrayLength] = useState(50);
+    const [arrayLength, setArrayLength] = useState(isMobile ? 20 : 50);
     const [animationSpeed, setAnimationSpeed] = useState(10);
 
     const resetArray = () => {
