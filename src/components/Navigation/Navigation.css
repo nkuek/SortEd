@@ -1,5 +1,5 @@
 .navigation-container {
-    height: 60px;
+    min-height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,4 +8,5 @@
 
 .sorting-container {
     display: flex;
+    flex-wrap: wrap;
 }

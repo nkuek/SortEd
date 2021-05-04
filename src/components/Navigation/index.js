@@ -102,13 +102,14 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
             </div>
             <div className="sorting-container">
                 <button onClick={bubbleSort} className="merge-sort">
-                    Bubble Sort
+                    Bubble
                 </button>
                 <button onClick={mergeSort} className="merge-sort">
-                    Merge Sort
+                    Merge
                 </button>
-                <button className="merge-sort">Quick Sort</button>
-                <button className="merge-sort">Heap Sort</button>
+                <button className="merge-sort">Insertion </button>
+                <button className="merge-sort">Quick</button>
+                <button className="merge-sort">Heap</button>
             </div>
         </div>
     );
