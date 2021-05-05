@@ -1,14 +1,16 @@
 import './SortingVisualizer.css';
 import { BeatLoader } from 'react-spinners';
+import { useArray } from '../../context/ArrayContext';
 
-const SortingVisualizer = ({
-    array,
-    arrayLength,
-    setArrayLength,
-    animationSpeed,
-    setAnimationSpeed,
-    loading,
-}) => {
+const SortingVisualizer = ({ loading }) => {
+    const {
+        array,
+        arrayLength,
+        setArrayLength,
+        animationSpeed,
+        setAnimationSpeed,
+    } = useArray();
+
     return (
         <>
             {loading && (
@@ -35,8 +37,8 @@ const SortingVisualizer = ({
                     <input
                         onChange={(e) => setAnimationSpeed(e.target.value)}
                         type="range"
-                        min="-301"
-                        max="1"
+                        min="-153"
+                        max="-3"
                         step="-50"
                         value={animationSpeed}
                     ></input>

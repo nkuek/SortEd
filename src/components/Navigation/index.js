@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useArray } from '../../context/ArrayContext';
 import {
     mergeSortAnimations,
     bubbleSortAnimations,
@@ -7,8 +8,8 @@ import {
 } from '../SortingAlgorithms/';
 import './Navigation.css';
 
-const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
-    const [sorted, setSorted] = useState(false);
+const Navigation = ({ setLoading, sorted, setSorted }) => {
+    const { array, resetArray, animationSpeed } = useArray();
     const [sorting, setSorting] = useState(false);
 
     useEffect(() => {
@@ -34,6 +35,20 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
             });
         }
     }, [sorting]);
+
+    useEffect(() => {
+        if (sorted) {
+            document.querySelectorAll('.sort-button').forEach((button) => {
+                button.disabled = true;
+                button.style.cursor = 'initial';
+            });
+        } else {
+            document.querySelectorAll('.sort-button').forEach((button) => {
+                button.disabled = false;
+                button.style.cursor = 'pointer';
+            });
+        }
+    });
 
     const color1 = 'red';
     const color2 = 'black';
@@ -82,10 +97,6 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
     };
 
     const resetState = () => {
-        if (sorted) {
-            resetArray();
-            setSorted(false);
-        }
         setSorting(true);
         // useful for better UX for slower algos like bubble and insertion sort
         // triggers loading animation
@@ -104,8 +115,10 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
     const bubbleSort = () => {
         resetState();
         setTimeout(() => {
+            console.log({ bubble: array });
             setLoading(false);
             const animations = bubbleSortAnimations(array);
+            console.log({ after: array });
             animator(animations, 4);
         }, 200);
     };
@@ -124,6 +137,7 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
         setTimeout(() => {
             setLoading(false);
             const animations = quickSortAnimations(array);
+            console.table(array);
             animator(animations, 4);
         }, 300);
     };
@@ -141,19 +155,19 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
                 </button>
             </div>
             <div className="sorting-container">
-                <button onClick={bubbleSort} className="merge-sort">
+                <button onClick={bubbleSort} className="sort-button">
                     Bubble
                 </button>
-                <button onClick={insertionSort} className="merge-sort">
-                    Insertion{' '}
+                <button onClick={insertionSort} className="sort-button">
+                    Insertion
                 </button>
-                <button onClick={quickSort} className="merge-sort">
+                <button className="sort-button">Selection</button>
+                <button onClick={quickSort} className="sort-button">
                     Quick
                 </button>
-                <button onClick={mergeSort} className="merge-sort">
+                <button onClick={mergeSort} className="sort-button">
                     Merge
                 </button>
-                <button className="merge-sort">Heap</button>
             </div>
         </div>
     );

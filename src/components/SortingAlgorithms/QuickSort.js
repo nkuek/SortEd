@@ -27,7 +27,7 @@ const quickSortHelper = (array, start, end, animations) => {
         if (array[right] >= array[pivot]) right--;
     }
     animations.push([pivot, right]);
-    animations.push([right, pivot]);
+    animations.push([pivot, right]);
     animations.push([right, array[pivot]]);
     animations.push([pivot, array[right]]);
     swap(array, pivot, right);
