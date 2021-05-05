@@ -3,6 +3,7 @@ import {
     mergeSortAnimations,
     bubbleSortAnimations,
     insertionSortAnimations,
+    quickSortAnimations,
 } from '../SortingAlgorithms/';
 import './Navigation.css';
 
@@ -91,8 +92,6 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
         setLoading(true);
     };
 
-    console.log(array);
-
     const mergeSort = () => {
         resetState();
         setTimeout(() => {
@@ -120,6 +119,15 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
         }, 200);
     };
 
+    const quickSort = () => {
+        resetState();
+        setTimeout(() => {
+            setLoading(false);
+            const animations = quickSortAnimations(array);
+            animator(animations, 4);
+        }, 300);
+    };
+
     return (
         <div className="navigation-container">
             <div className="new-array">
@@ -139,10 +147,12 @@ const Navigation = ({ resetArray, array, animationSpeed, setLoading }) => {
                 <button onClick={insertionSort} className="merge-sort">
                     Insertion{' '}
                 </button>
+                <button onClick={quickSort} className="merge-sort">
+                    Quick
+                </button>
                 <button onClick={mergeSort} className="merge-sort">
                     Merge
                 </button>
-                <button className="merge-sort">Quick</button>
                 <button className="merge-sort">Heap</button>
             </div>
         </div>

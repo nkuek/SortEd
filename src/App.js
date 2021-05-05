@@ -35,10 +35,6 @@ function App() {
 
     useEffect(() => {
         resetArray();
-    }, []);
-
-    useEffect(() => {
-        resetArray();
     }, [arrayLength]);
     return (
         <>

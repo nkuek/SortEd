@@ -20,7 +20,9 @@ const SortingVisualizer = ({
                 <div className="array-size-container">
                     <label>Size</label>
                     <input
-                        onChange={(e) => setArrayLength(e.target.value)}
+                        onChange={(e) => {
+                            setArrayLength(e.target.value);
+                        }}
                         type="range"
                         min="10"
                         max="100"

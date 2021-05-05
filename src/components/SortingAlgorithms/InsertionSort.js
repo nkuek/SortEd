@@ -1,5 +1,6 @@
 export const insertionSortAnimations = (array) => {
     let animations = [];
+
     for (let i = 1; i < array.length; i++) {
         let j = i;
         while (j > 0) {
