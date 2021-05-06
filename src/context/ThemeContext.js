@@ -35,9 +35,9 @@ export const ThemeProvider = ({ children }) => {
         nautilus: [
             '#132237',
             '#0b4c6c',
-            '#0b4c6c',
-            '#ebb723',
             '#1cbaac',
+            '#A42529',
+            '#ebb723',
             'white',
             '#0b4c6c',
             '#0e1a29',
