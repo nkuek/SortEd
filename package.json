@@ -2,7 +2,7 @@
   "name": "sorting-visualizer",
   "version": "1.0.0",
   "engines": {
-      "node": "14.x"
+    "node": "14.x"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -38,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
   }
 }
