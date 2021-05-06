@@ -24,8 +24,8 @@
 
 .array-option-container {
     display: flex;
-    position: absolute;
     justify-content: space-between;
+    position: absolute;
     width: 100%;
     z-index: 1;
     margin-top: 1em;
@@ -36,7 +36,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
     margin-right: 1em;
+    top: -.5em;
 }
 
 .array-size-container > label {

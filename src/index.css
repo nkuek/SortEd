@@ -46,13 +46,18 @@ button:disabled {
     background-color: var(--button-disabled);
 }
 
-button:hover {
+button:hover:not([disabled]) {
     color: black;
     background-color: var(--button-hover);
 }
 
+
 input {
     margin: 0;
+}
+
+select {
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 900px) {

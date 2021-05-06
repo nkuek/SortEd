@@ -58,6 +58,7 @@ const SortingVisualizer = ({ loading }) => {
                     >
                         <option value="default">Default</option>
                         <option value="dracula">Dracula</option>
+                        <option value="nautilus">Nautilus</option>
                     </select>
                 </div>
             </div>
