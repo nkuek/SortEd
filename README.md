@@ -12,8 +12,8 @@ A fun, interactive way to learn a few popular sorting algorithms!
   *  [MaterialUI](https://material-ui.com/)
 
 ### Features
-  - **Theme Chooser**
+   **Theme Chooser**
  <img src="https://media.giphy.com/media/qv5NoSe3jf57WGCwOK/giphy.gif" />
  
-   - **Adjustable animation speed and array size**
+    **Adjustable animation speed and array size**
  <img src="https://media.giphy.com/media/eW2wYR9duzwSw5kxaZ/giphy.gif" />
