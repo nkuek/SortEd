@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useArray } from './context/ArrayContext';
-import './App.css';
 import Navigation from './components/Navigation';
 import SortingVisualizer from './components/SortingVisualizer';
 import { useMediaQuery } from 'react-responsive';
