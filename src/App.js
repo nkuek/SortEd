@@ -50,6 +50,8 @@ function App() {
             document.querySelectorAll('.array-bar').forEach((array) => {
                 array.style.backgroundColor = arrayBarColor;
             });
+            document.querySelector('.MuiSelect-select').style.color = fontColor;
+            document.querySelector('.MuiSelect-icon').style.color = fontColor;
             // document.querySelector(
             //     '.navigation-container'
             // ).style.backgroundColor = navBarColor;

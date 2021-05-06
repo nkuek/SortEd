@@ -61,6 +61,14 @@ select {
     cursor: pointer;
 }
 
+option {
+    cursor: initial;
+}
+
+select:after {
+    position: absolute
+}
+
 @media only screen and (max-width: 900px) {
     button {
         padding: .3em .6em;

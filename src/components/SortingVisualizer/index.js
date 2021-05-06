@@ -2,6 +2,19 @@ import './SortingVisualizer.css';
 import { BeatLoader } from 'react-spinners';
 import { useArray } from '../../context/ArrayContext';
 import { useTheme } from '../../context/ThemeContext';
+import { Select, MenuItem } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
+
+const root = document.querySelector(':root');
+const fontColor = getComputedStyle(root).getPropertyValue('--font-color');
+const CustomSelect = withStyles({
+    select: {
+        color: fontColor,
+    },
+    icon: {
+        color: fontColor,
+    },
+})(Select);
 
 const SortingVisualizer = ({ loading }) => {
     const {
@@ -50,7 +63,7 @@ const SortingVisualizer = ({ loading }) => {
                 </div>
                 <div className="array-theme">
                     <label>Theme</label>
-                    <select
+                    <CustomSelect
                         onChange={(e) => {
                             localStorage.setItem(
                                 'theme',
@@ -60,12 +73,12 @@ const SortingVisualizer = ({ loading }) => {
                         }}
                         value={theme}
                     >
-                        <option value="default">Default</option>
-                        <option value="dracula">Dracula</option>
-                        <option value="nautilus">Nautilus</option>
-                        <option value="monokai">Monokai</option>
-                        <option value="phantom">Phantom</option>
-                    </select>
+                        <MenuItem value="default">Default</MenuItem>
+                        <MenuItem value="dracula">Dracula</MenuItem>
+                        <MenuItem value="nautilus">Nautilus</MenuItem>
+                        <MenuItem value="monokai">Monokai</MenuItem>
+                        <MenuItem value="phantom">Phantom</MenuItem>
+                    </CustomSelect>
                 </div>
             </div>
             <div className="array-container">
