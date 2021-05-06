@@ -12,7 +12,7 @@ const SortingVisualizer = ({ loading }) => {
         setAnimationSpeed,
     } = useArray();
 
-    const { setTheme } = useTheme();
+    const { theme, setTheme } = useTheme();
 
     return (
         <>
@@ -54,6 +54,7 @@ const SortingVisualizer = ({ loading }) => {
                         onChange={(e) => {
                             setTheme(e.target.value);
                         }}
+                        value={theme}
                     >
                         <option value="default">Default</option>
                         <option value="dracula">Dracula</option>

@@ -30,6 +30,9 @@ function App() {
     useEffect(() => {
         resetArray();
         setSorted(false);
+        document.querySelectorAll('.array-bar').forEach((array) => {
+            array.style.backgroundColor = arrayBarColor;
+        });
     }, [arrayLength]);
 
     useEffect(() => {
@@ -41,15 +44,16 @@ function App() {
             root.style.setProperty('--font-color', fontColor);
             root.style.setProperty('--array-bar-color', arrayBarColor);
             root.style.setProperty('--button-hover', buttonHoverColor);
+            document.querySelectorAll('.array-bar').forEach((array) => {
+                array.style.backgroundColor = arrayBarColor;
+            });
             // document.querySelector(
             //     '.navigation-container'
             // ).style.backgroundColor = navBarColor;
             // document.querySelector(
             //     '.array-container'
             // ).style.backgroundColor = backgroundColor;
-            // document.querySelectorAll('.array-bar').forEach((array) => {
-            //     array.style.backgroundColor = arrayBarColor;
-            // });
+
             // document.querySelectorAll('button').forEach((button) => {
             //     button.style.backgroundColor = buttonColor;
             //     button.style.color = fontColor;
