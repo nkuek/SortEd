@@ -64,6 +64,9 @@ function App() {
     useEffect(() => {
         if (array.length > 0) {
             setIsLoaded(true);
+            document.querySelectorAll('.array-bar').forEach((array) => {
+                array.style.backgroundColor = arrayBarColor;
+            });
         }
     }, [array]);
 
