@@ -3,7 +3,7 @@
 A fun, interactive way to learn a few popular sorting algorithms!
 
 ## About the Project
-![https://gph.is/g/4603RD8]
+![](https://gph.is/g/4603RD8)
 In the project directory, you can run:
 
 ### `yarn start`
