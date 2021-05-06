@@ -7,7 +7,7 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState('dracula');
+    const [theme, setTheme] = useState('default');
 
     const themes = {
         default: [

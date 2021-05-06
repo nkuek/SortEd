@@ -14,6 +14,7 @@ function App() {
     const [sorted, setSorted] = useState(false);
     const {
         theme,
+        setTheme,
         backgroundColor,
         navBarColor,
         arrayBarColor,
@@ -63,6 +64,8 @@ function App() {
 
     useEffect(() => {
         if (array.length > 0) {
+            if (localStorage.getItem('theme'))
+                setTheme(JSON.parse(localStorage.getItem('theme')));
             setIsLoaded(true);
             document.querySelectorAll('.array-bar').forEach((array) => {
                 array.style.backgroundColor = arrayBarColor;

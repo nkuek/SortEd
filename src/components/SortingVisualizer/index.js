@@ -52,6 +52,10 @@ const SortingVisualizer = ({ loading }) => {
                     <label>Theme</label>
                     <select
                         onChange={(e) => {
+                            localStorage.setItem(
+                                'theme',
+                                JSON.stringify(e.target.value)
+                            );
                             setTheme(e.target.value);
                         }}
                         value={theme}
