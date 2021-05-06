@@ -38,7 +38,7 @@ const Navigation = ({ setLoading, sorted, setSorted }) => {
     }, [sorting]);
 
     useEffect(() => {
-        if (sorted) {
+        if (sorted || sorting) {
             document.querySelectorAll('.sort-button').forEach((button) => {
                 button.disabled = true;
                 button.style.cursor = 'initial';
