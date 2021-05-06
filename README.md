@@ -1,9 +1,9 @@
-# Getting Started with Create React App
+# SortEd
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A fun, interactive way to learn a few popular sorting algorithms!
 
-## Available Scripts
-
+## About the Project
+![https://gph.is/g/4603RD8]
 In the project directory, you can run:
 
 ### `yarn start`
