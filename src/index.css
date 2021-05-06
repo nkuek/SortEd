@@ -30,6 +30,10 @@ button {
     background-color: white;
 }
 
+button:disabled {
+    background-color: gray;
+}
+
 input {
     margin: 0;
 }
