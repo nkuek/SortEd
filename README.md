@@ -4,9 +4,12 @@ A fun, interactive way to learn a few popular sorting algorithms!
 
 ## About the Project
 <img src="https://media.giphy.com/media/bD867j5eimIyRYXmKS/giphy.gif" />
-In the project directory, you can run:
 
-### `yarn start`
+### Technologies
+  * [React](https://reactjs.org/)
+  * [JavaScript](https://www.javascript.com/)
+  *  [CSS](http://www.css3.info/)
+  *  [MaterialUI](https://material-ui.com/)
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
