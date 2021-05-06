@@ -16,10 +16,6 @@ export const ArrayProvider = ({ children }) => {
     const [animationSpeed, setAnimationSpeed] = useState(-3);
 
     const resetArray = () => {
-        const arrayBars = document.getElementsByClassName('array-bar');
-        for (let i = 0; i < arrayBars.length; i++) {
-            arrayBars[i].style.backgroundColor = 'black';
-        }
         const array = [];
         for (let i = 0; i < arrayLength; i++) {
             array.push(generateRandomInt(50, window.innerHeight * 0.8));

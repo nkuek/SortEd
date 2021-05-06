@@ -7,11 +7,13 @@ import {
     quickSortAnimations,
     selectionSortAnimations,
 } from '../SortingAlgorithms/';
+import { useTheme } from '../../context/ThemeContext';
 import './Navigation.css';
 
 const Navigation = ({ setLoading, sorted, setSorted }) => {
     const { array, resetArray, animationSpeed } = useArray();
     const [sorting, setSorting] = useState(false);
+    const { selectedArrayColor, arrayBarColor, sortedColor } = useTheme();
 
     useEffect(() => {
         if (sorting) {
@@ -51,10 +53,6 @@ const Navigation = ({ setLoading, sorted, setSorted }) => {
         }
     });
 
-    const color1 = 'red';
-    const color2 = 'black';
-    const sortedColor = 'teal';
-
     const animator = (animations, colorChangeLength) => {
         // grab all DOM array-bar elements
         const arrayBars = document.getElementsByClassName('array-bar');
@@ -68,7 +66,10 @@ const Navigation = ({ setLoading, sorted, setSorted }) => {
                 const [barOneIdx, barTwoIdx] = animations[i];
                 const barOneStyle = arrayBars[barOneIdx].style;
                 const barTwoStyle = arrayBars[barTwoIdx].style;
-                const color = i % colorChangeLength === 0 ? color1 : color2;
+                const color =
+                    i % colorChangeLength === 0
+                        ? selectedArrayColor
+                        : arrayBarColor;
                 setTimeout(() => {
                     barOneStyle.backgroundColor = color;
                     barTwoStyle.backgroundColor = color;

@@ -1,6 +1,7 @@
 import './SortingVisualizer.css';
 import { BeatLoader } from 'react-spinners';
 import { useArray } from '../../context/ArrayContext';
+import { useTheme } from '../../context/ThemeContext';
 
 const SortingVisualizer = ({ loading }) => {
     const {
@@ -11,6 +12,8 @@ const SortingVisualizer = ({ loading }) => {
         setAnimationSpeed,
     } = useArray();
 
+    const { setTheme } = useTheme();
+
     return (
         <>
             {loading && (
@@ -19,29 +22,42 @@ const SortingVisualizer = ({ loading }) => {
                 </div>
             )}
             <div className="array-option-container">
-                <div className="array-size-container">
-                    <label>Size</label>
-                    <input
-                        onChange={(e) => {
-                            setArrayLength(e.target.value);
-                        }}
-                        type="range"
-                        min="10"
-                        max="100"
-                        step="10"
-                        value={array.length}
-                    ></input>
+                <div className="array-size-speed">
+                    <div className="array-size-container">
+                        <label>Size</label>
+                        <input
+                            onChange={(e) => {
+                                setArrayLength(e.target.value);
+                            }}
+                            type="range"
+                            min="10"
+                            max="100"
+                            step="10"
+                            value={array.length}
+                        ></input>
+                    </div>
+                    <div className="array-speed-container">
+                        <label>Speed</label>
+                        <input
+                            onChange={(e) => setAnimationSpeed(e.target.value)}
+                            type="range"
+                            min="-153"
+                            max="-3"
+                            step="-50"
+                            value={animationSpeed}
+                        ></input>
+                    </div>
                 </div>
-                <div className="array-speed-container">
-                    <label>Speed</label>
-                    <input
-                        onChange={(e) => setAnimationSpeed(e.target.value)}
-                        type="range"
-                        min="-153"
-                        max="-3"
-                        step="-50"
-                        value={animationSpeed}
-                    ></input>
+                <div className="array-theme">
+                    <label>Theme</label>
+                    <select
+                        onChange={(e) => {
+                            setTheme(e.target.value);
+                        }}
+                    >
+                        <option value="default">Default</option>
+                        <option value="dracula">Dracula</option>
+                    </select>
                 </div>
             </div>
             <div className="array-container">

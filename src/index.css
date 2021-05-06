@@ -1,3 +1,13 @@
+:root {
+    --background: white;
+    --foreground: black;
+    --font-color: black;
+    --button-hover: #bab8b8;
+    --button-color: white;
+    --button-disabled: gray;
+    --font-color: black;
+    --array-bar-color: black;
+}
 html, body {
     margin: 0;
     padding: 0;
@@ -27,12 +37,18 @@ button {
     margin: 0em 1em;
     padding: .5em 1em;
     border-radius: 3px;
-    background-color: white;
+    color: var(--font-color);
+    background-color: var(--button-color);
 }
 
 button:disabled {
     color: black;
-    background-color: gray;
+    background-color: var(--button-disabled);
+}
+
+button:hover {
+    color: black;
+    background-color: var(--button-hover);
 }
 
 input {
