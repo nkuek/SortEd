@@ -6,6 +6,7 @@
     --button-color: white;
     --button-disabled: gray;
     --font-color: black;
+    --button-font-color: black;
     --array-bar-color: black;
 }
 html, body {
@@ -47,7 +48,7 @@ button:disabled {
 }
 
 button:hover:not([disabled]) {
-    color: black;
+    color: var(--button-font-color);
     background-color: var(--button-hover);
 }
 

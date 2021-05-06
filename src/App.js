@@ -21,6 +21,7 @@ function App() {
         buttonColor,
         fontColor,
         buttonHoverColor,
+        buttonFontColor,
     } = useTheme();
 
     useEffect(() => {
@@ -45,6 +46,7 @@ function App() {
             root.style.setProperty('--font-color', fontColor);
             root.style.setProperty('--array-bar-color', arrayBarColor);
             root.style.setProperty('--button-hover', buttonHoverColor);
+            root.style.setProperty('--button-font-color', buttonFontColor);
             document.querySelectorAll('.array-bar').forEach((array) => {
                 array.style.backgroundColor = arrayBarColor;
             });
