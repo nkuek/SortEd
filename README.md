@@ -3,7 +3,7 @@
 A fun, interactive way to learn a few popular sorting algorithms!
 
 ## About the Project
-<iframe src="https://giphy.com/embed/bD867j5eimIyRYXmKS" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/bD867j5eimIyRYXmKS">via GIPHY</a></p>
+<img src="https://media.giphy.com/media/bD867j5eimIyRYXmKS/giphy.gif" />
 In the project directory, you can run:
 
 ### `yarn start`
