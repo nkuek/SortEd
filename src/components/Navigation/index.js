@@ -5,6 +5,7 @@ import {
     bubbleSortAnimations,
     insertionSortAnimations,
     quickSortAnimations,
+    selectionSortAnimations,
 } from '../SortingAlgorithms/';
 import './Navigation.css';
 
@@ -115,10 +116,8 @@ const Navigation = ({ setLoading, sorted, setSorted }) => {
     const bubbleSort = () => {
         resetState();
         setTimeout(() => {
-            console.log({ bubble: array });
             setLoading(false);
             const animations = bubbleSortAnimations(array);
-            console.log({ after: array });
             animator(animations, 4);
         }, 200);
     };
@@ -137,9 +136,17 @@ const Navigation = ({ setLoading, sorted, setSorted }) => {
         setTimeout(() => {
             setLoading(false);
             const animations = quickSortAnimations(array);
-            console.table(array);
             animator(animations, 4);
         }, 300);
+    };
+
+    const selectionSort = () => {
+        resetState();
+        setTimeout(() => {
+            setLoading(false);
+            const animations = selectionSortAnimations(array);
+            animator(animations, 4);
+        });
     };
 
     return (
@@ -161,7 +168,9 @@ const Navigation = ({ setLoading, sorted, setSorted }) => {
                 <button onClick={insertionSort} className="sort-button">
                     Insertion
                 </button>
-                <button className="sort-button">Selection</button>
+                <button onClick={selectionSort} className="sort-button">
+                    Selection
+                </button>
                 <button onClick={quickSort} className="sort-button">
                     Quick
                 </button>

@@ -1,3 +1,4 @@
+import swap from './utils';
 export const bubbleSortAnimations = (array, animations = []) => {
     let isSorted = false;
     let counter = 1;
@@ -19,10 +20,4 @@ export const bubbleSortAnimations = (array, animations = []) => {
         counter++;
     }
     return animations;
-};
-
-const swap = (array, i, j) => {
-    let tempNum = array[i];
-    array[i] = array[j];
-    array[j] = tempNum;
 };

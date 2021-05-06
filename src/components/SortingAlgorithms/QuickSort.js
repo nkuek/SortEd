@@ -1,3 +1,4 @@
+import swap from './utils';
 export const quickSortAnimations = (array) => {
     const animations = [];
     quickSortHelper(array, 0, array.length - 1, animations);
@@ -33,10 +34,4 @@ const quickSortHelper = (array, start, end, animations) => {
     swap(array, pivot, right);
     quickSortHelper(array, start, right - 1, animations);
     quickSortHelper(array, right + 1, end, animations);
-};
-
-const swap = (array, i, j) => {
-    const temp = array[j];
-    array[j] = array[i];
-    array[i] = temp;
 };

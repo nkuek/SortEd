@@ -1,3 +1,4 @@
+import swap from './utils';
 export const insertionSortAnimations = (array) => {
     let animations = [];
 
@@ -18,10 +19,4 @@ export const insertionSortAnimations = (array) => {
         }
     }
     return animations;
-};
-
-const swap = (array, i, j) => {
-    const tempNum = array[i];
-    array[i] = array[j];
-    array[j] = tempNum;
 };
