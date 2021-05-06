@@ -31,6 +31,7 @@ button {
 }
 
 button:disabled {
+    color: black;
     background-color: gray;
 }
 
@@ -40,8 +41,8 @@ input {
 
 @media only screen and (max-width: 900px) {
     button {
-        padding: .2em .4em;
-        margin: 0em .5em;
+        padding: .3em .6em;
+        margin: 0em .3em;
         font-size: .8em;
     }
 }
