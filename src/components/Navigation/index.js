@@ -120,7 +120,7 @@ const Navigation = ({ setLoading, sorted, setSorted }) => {
             setLoading(false);
             const animations = bubbleSortAnimations(array);
             animator(animations, 4);
-        }, 200);
+        }, 300);
     };
 
     const insertionSort = () => {
@@ -129,7 +129,7 @@ const Navigation = ({ setLoading, sorted, setSorted }) => {
             setLoading(false);
             const animations = insertionSortAnimations(array);
             animator(animations, 4);
-        }, 200);
+        }, 300);
     };
 
     const quickSort = () => {
