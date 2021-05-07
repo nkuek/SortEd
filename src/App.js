@@ -26,7 +26,8 @@ function App() {
     } = useTheme();
 
     useEffect(() => {
-        if (isMobile && !sorting) setArrayLength(20);
+        if (sorting) return;
+        if (isMobile) setArrayLength(20);
         else setArrayLength(40);
     }, [isMobile, setArrayLength]);
 
