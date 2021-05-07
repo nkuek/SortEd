@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import './SortingVisualizer.css';
 import { BeatLoader } from 'react-spinners';
 import { useArray } from '../../context/ArrayContext';

@@ -27,7 +27,7 @@ function App() {
     useEffect(() => {
         if (isMobile) setArrayLength(20);
         else setArrayLength(40);
-    }, [isMobile]);
+    }, [isMobile, setArrayLength]);
 
     useEffect(() => {
         resetArray();
@@ -35,7 +35,8 @@ function App() {
         document.querySelectorAll('.array-bar').forEach((array) => {
             array.style.backgroundColor = arrayBarColor;
         });
-    }, [arrayLength]);
+        // eslint-disable-next-line
+    }, [arrayLength, arrayBarColor]);
 
     useEffect(() => {
         if (isLoaded) {
@@ -52,19 +53,18 @@ function App() {
             });
             document.querySelector('.MuiSelect-select').style.color = fontColor;
             document.querySelector('.MuiSelect-icon').style.color = fontColor;
-            // document.querySelector(
-            //     '.navigation-container'
-            // ).style.backgroundColor = navBarColor;
-            // document.querySelector(
-            //     '.array-container'
-            // ).style.backgroundColor = backgroundColor;
-
-            // document.querySelectorAll('button').forEach((button) => {
-            //     button.style.backgroundColor = buttonColor;
-            //     button.style.color = fontColor;
-            // });
         }
-    }, [theme, isLoaded]);
+    }, [
+        theme,
+        isLoaded,
+        backgroundColor,
+        navBarColor,
+        buttonColor,
+        fontColor,
+        buttonFontColor,
+        buttonHoverColor,
+        arrayBarColor,
+    ]);
 
     useEffect(() => {
         if (array.length > 0) {
@@ -75,7 +75,7 @@ function App() {
                 array.style.backgroundColor = arrayBarColor;
             });
         }
-    }, [array]);
+    }, [array, arrayBarColor, setTheme]);
 
     return (
         <>

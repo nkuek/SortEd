@@ -52,6 +52,11 @@ button:hover:not([disabled]) {
     background-color: var(--button-hover);
 }
 
+button.selected {
+    color: var(--button-font-color);
+    background-color: var(--button-hover);
+}
+
 
 input {
     margin: 0;
