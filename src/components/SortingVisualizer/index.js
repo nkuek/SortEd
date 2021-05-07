@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import './SortingVisualizer.css';
 import { BeatLoader } from 'react-spinners';
 import { useArray } from '../../context/ArrayContext';
@@ -17,7 +17,7 @@ const CustomSelect = withStyles({
     },
 })(Select);
 
-const SortingVisualizer = ({ loading }) => {
+const SortingVisualizer = ({ loading, showHelper }) => {
     const {
         array,
         arrayLength,
@@ -62,6 +62,11 @@ const SortingVisualizer = ({ loading }) => {
                         ></input>
                     </div>
                 </div>
+                {showHelper && (
+                    <div className="helper-container">
+                        <div>Click on a sorting button to begin!</div>
+                    </div>
+                )}
                 <div className="array-theme">
                     <label>Theme</label>
                     <CustomSelect

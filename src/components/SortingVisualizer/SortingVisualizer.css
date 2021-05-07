@@ -57,3 +57,13 @@
     background-color: var(--array-bar-color);
     transition: 150ms height
 }
+
+.helper-container {
+    font-size: 1.5em;
+}
+
+@media only screen and (max-width: 750px) {
+    .helper-container {
+        display: none;
+    }
+}

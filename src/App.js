@@ -11,7 +11,7 @@ function App() {
     const { array, arrayLength, setArrayLength, resetArray } = useArray();
     const [isLoaded, setIsLoaded] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [sorted, setSorted] = useState(false);
+    const [showHelper, setShowHelper] = useState(true);
     const {
         theme,
         setTheme,
@@ -31,7 +31,6 @@ function App() {
 
     useEffect(() => {
         resetArray();
-        setSorted(false);
         document.querySelectorAll('.array-bar').forEach((array) => {
             array.style.backgroundColor = arrayBarColor;
         });
@@ -79,12 +78,8 @@ function App() {
 
     return (
         <>
-            <Navigation
-                setLoading={setLoading}
-                sorted={sorted}
-                setSorted={setSorted}
-            />
-            <SortingVisualizer loading={loading} />
+            <Navigation setLoading={setLoading} setShowHelper={setShowHelper} />
+            <SortingVisualizer loading={loading} showHelper={showHelper} />
         </>
     );
 }

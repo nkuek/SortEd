@@ -4,9 +4,22 @@
     justify-content: space-between;
     align-items: center;
     background-color: var(--foreground);
+    overflow-x: auto;
 }
+
 
 .sorting-container {
     display: flex;
     flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 500px) {
+    .sorting-container {
+        flex-wrap: nowrap
+    }
+
+    .navigation-container button {
+        padding: 1em;
+    }
+
 }

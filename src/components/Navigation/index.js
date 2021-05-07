@@ -10,10 +10,10 @@ import {
 import { useTheme } from '../../context/ThemeContext';
 import './Navigation.css';
 
-const Navigation = ({ setLoading, sorted, setSorted }) => {
+const Navigation = ({ setLoading, setShowHelper }) => {
     const [sorting, setSorting] = useState(false);
     const [selectedButton, setSelectedButton] = useState();
-    const { array, setNewArray, resetArray, animationSpeed } = useArray();
+    const { array, resetArray, animationSpeed } = useArray();
     const { selectedArrayColor, arrayBarColor, sortedColor } = useTheme();
 
     useEffect(() => {
@@ -28,6 +28,7 @@ const Navigation = ({ setLoading, sorted, setSorted }) => {
                 input.style.cursor = 'initial';
             });
             selectedButton.classList.add('selected');
+            setShowHelper(false);
         } else {
             // reenable all buttons and inputs once animations are complete
             document.querySelectorAll('button').forEach((button) => {
@@ -85,7 +86,6 @@ const Navigation = ({ setLoading, sorted, setSorted }) => {
             // triggers useEffect above to reenable buttons and inputs
             setSorting(false);
             // triggers resetArray function on next button click
-            setSorted(true);
         }, Math.abs(animationSpeed) * animations.length);
     };
 
@@ -154,14 +154,7 @@ const Navigation = ({ setLoading, sorted, setSorted }) => {
     return (
         <div className="navigation-container">
             <div className="new-array">
-                <button
-                    onClick={() => {
-                        setSorted(false);
-                        resetArray();
-                    }}
-                >
-                    New Array
-                </button>
+                <button onClick={resetArray}>New Array</button>
             </div>
             <div className="sorting-container">
                 <button
