@@ -42,6 +42,7 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
                 selectedButton.classList.remove('selected');
             }
         }
+        // eslint-disable-next-line
     }, [sorting, selectedButton]);
 
     const animator = (animations, colorChangeLength) => {

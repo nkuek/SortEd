@@ -29,6 +29,7 @@ function App() {
         if (sorting) return;
         if (isMobile) setArrayLength(20);
         else setArrayLength(40);
+        // eslint-disable-next-line
     }, [isMobile, setArrayLength]);
 
     useEffect(() => {
