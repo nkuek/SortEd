@@ -10,8 +10,7 @@ import {
 import { useTheme } from '../../context/ThemeContext';
 import './Navigation.css';
 
-const Navigation = ({ setLoading, setShowHelper }) => {
-    const [sorting, setSorting] = useState(false);
+const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
     const [selectedButton, setSelectedButton] = useState();
     const { array, resetArray, animationSpeed } = useArray();
     const { selectedArrayColor, arrayBarColor, sortedColor } = useTheme();

@@ -9,6 +9,7 @@ function App() {
     document.body.style.height = `${window.innerHeight}px`;
     const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
     const { array, arrayLength, setArrayLength, resetArray } = useArray();
+    const [sorting, setSorting] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
     const [loading, setLoading] = useState(false);
     const [showHelper, setShowHelper] = useState(true);
@@ -25,7 +26,7 @@ function App() {
     } = useTheme();
 
     useEffect(() => {
-        if (isMobile) setArrayLength(20);
+        if (isMobile && !sorting) setArrayLength(20);
         else setArrayLength(40);
     }, [isMobile, setArrayLength]);
 
@@ -78,7 +79,12 @@ function App() {
 
     return (
         <>
-            <Navigation setLoading={setLoading} setShowHelper={setShowHelper} />
+            <Navigation
+                setLoading={setLoading}
+                setShowHelper={setShowHelper}
+                sorting={sorting}
+                setSorting={setSorting}
+            />
             <SortingVisualizer loading={loading} showHelper={showHelper} />
         </>
     );
