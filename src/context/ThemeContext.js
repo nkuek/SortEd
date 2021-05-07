@@ -50,7 +50,7 @@ export const ThemeProvider = ({ children }) => {
             backgroundColor: '#272822',
             navBarColor: '#272822',
             arrayBarColor: '#A6E22E',
-            selectedArrayColor: '#E6DB74',
+            selectedArrayColor: '#88FFFF',
             sortedColor: '#f9357c',
             fontColor: 'white',
             buttonColor: '#272822',
