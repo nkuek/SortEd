@@ -45,39 +45,34 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
         // eslint-disable-next-line
     }, [sorting, selectedButton]);
 
-    const animator = (animations, colorChangeLength) => {
-        // grab all DOM array-bar elements
+    const animator = (animations) => {
         const arrayBars = document.getElementsByClassName('array-bar');
         for (let i = 0; i < animations.length; i++) {
-            // the color change element will be different depending on the sorting algo
-            // denoted by the colorChangeLength
-            // see individual sorting algos for more details
-            const isColorChange =
-                i % colorChangeLength === 0 || i % colorChangeLength === 2;
+            // color change animations occur at index 0 and 2 of every triplet in animations array
+            const isColorChange = i % 3 === 0 || i % 3 === 2;
+
             if (isColorChange) {
-                // animations[i] contains different elements depending on if it is a color change element or not
                 const [barOneIdx, barTwoIdx] = animations[i];
                 const barOneStyle = arrayBars[barOneIdx].style;
                 const barTwoStyle = arrayBars[barTwoIdx].style;
-                const color =
-                    i % colorChangeLength === 0
-                        ? selectedArrayColor
-                        : arrayBarColor;
+
+                const color = i % 3 === 0 ? selectedArrayColor : arrayBarColor;
+
                 setTimeout(() => {
                     barOneStyle.backgroundColor = color;
                     barTwoStyle.backgroundColor = color;
                 }, i * Math.abs(animationSpeed));
             } else {
                 setTimeout(() => {
-                    // notice how animations[i][1] is different than above code
+                    // bar height animation occurs at first index of every triplet in animations array
                     const [
-                        [barOneIdx, newHeight],
-                        [barTwoIdx, barTwoHeight],
+                        [barOneIdx, newBarOneHeight],
+                        [barTwoIdx, newBarTwoHeight],
                     ] = animations[i];
                     const barOneStyle = arrayBars[barOneIdx].style;
                     const barTwoStyle = arrayBars[barTwoIdx].style;
-                    barOneStyle.height = `${newHeight}px`;
-                    barTwoStyle.height = `${barTwoHeight}px`;
+                    barOneStyle.height = `${newBarOneHeight}px`;
+                    barTwoStyle.height = `${newBarTwoHeight}px`;
                 }, i * Math.abs(animationSpeed));
             }
         }
@@ -91,21 +86,24 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
         setTimeout(() => {
             // triggers useEffect above to reenable buttons and inputs
             setSorting(false);
-            // triggers resetArray function on next button click
         }, Math.abs(animationSpeed) * animations.length);
     };
 
     const resetState = () => {
+        // reset bars to original position before sorting
         const arrayBars = document.querySelectorAll('.array-bar');
         for (let i = 0; i < arrayBars.length; i++) {
             arrayBars[i].style.height = `${array[i]}px`;
             arrayBars[i].style.backgroundColor = arrayBarColor;
         }
+        // disables all buttons and input to prevent simultaneous algorithm runs
         setSorting(true);
-        // useful for better UX for slower algos like bubble and insertion sort
+
         // triggers loading animation
         setLoading(true);
     };
+
+    // sliced array is passed into each sorting algorithm to preserve the original array since the input array will be mutated
 
     const mergeSort = (e) => {
         resetState();
@@ -113,7 +111,7 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
         setTimeout(() => {
             setLoading(false);
             const animations = mergeSortAnimations(array.slice());
-            animator(animations, 3);
+            animator(animations);
         }, 300);
     };
 
@@ -123,7 +121,7 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
         setTimeout(() => {
             setLoading(false);
             const animations = bubbleSortAnimations(array.slice());
-            animator(animations, 3);
+            animator(animations);
         }, 300);
     };
 
@@ -133,7 +131,7 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
         setTimeout(() => {
             setLoading(false);
             const animations = insertionSortAnimations(array.slice());
-            animator(animations, 3);
+            animator(animations);
         }, 300);
     };
 
@@ -143,7 +141,7 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
         setTimeout(() => {
             setLoading(false);
             const animations = quickSortAnimations(array.slice());
-            animator(animations, 3);
+            animator(animations);
         }, 300);
     };
 
@@ -153,7 +151,7 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
         setTimeout(() => {
             setLoading(false);
             const animations = selectionSortAnimations(array.slice());
-            animator(animations, 3);
+            animator(animations);
         }, 300);
     };
 
@@ -163,12 +161,7 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
                 <button onClick={resetArray}>New Array</button>
             </div>
             <div className="sorting-container">
-                <button
-                    onClick={(e) => {
-                        bubbleSort(e);
-                    }}
-                    className="sort-button"
-                >
+                <button onClick={(e) => bubbleSort(e)} className="sort-button">
                     Bubble
                 </button>
                 <button

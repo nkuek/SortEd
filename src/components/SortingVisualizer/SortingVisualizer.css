@@ -55,7 +55,6 @@
     display: flex;
     margin: 0px 1px;
     background-color: var(--array-bar-color);
-    transition: 150ms height
 }
 
 .helper-container {

@@ -1,6 +1,5 @@
 export const mergeSortAnimations = (array) => {
     const animations = [];
-    if (array.length <= 1) return array;
     const copyArray = array.slice();
     mergeSortHelper(array, 0, array.length - 1, copyArray, animations);
     return animations;
@@ -8,6 +7,7 @@ export const mergeSortAnimations = (array) => {
 const mergeSortHelper = (mainArray, start, end, copyArr, animations) => {
     if (start === end) return;
     const middle = Math.floor((start + end) / 2);
+
     mergeSortHelper(copyArr, start, middle, mainArray, animations);
     mergeSortHelper(copyArr, middle + 1, end, mainArray, animations);
     mergeSort(mainArray, start, middle, end, copyArr, animations);
@@ -19,9 +19,7 @@ const mergeSort = (mainArray, start, middle, end, copyArr, animations) => {
     let j = middle + 1;
 
     while (i <= middle && j <= end) {
-        // first push to change color to selected array color
         animations.push([i, j]);
-        // second push to change color back to original color
 
         if (copyArr[i] <= copyArr[j]) {
             animations.push([
