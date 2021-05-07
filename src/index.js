@@ -5,13 +5,19 @@ import './index.css';
 import App from './App';
 import { ThemeProvider } from './context/ThemeContext';
 
-ReactDOM.render(
-    <ThemeProvider>
-        <ArrayProvider>
-            <React.StrictMode>
+function Root() {
+    return (
+        <ThemeProvider>
+            <ArrayProvider>
                 <App />
-            </React.StrictMode>
-        </ArrayProvider>
-    </ThemeProvider>,
+            </ArrayProvider>
+        </ThemeProvider>
+    );
+}
+
+ReactDOM.render(
+    <React.StrictMode>
+        <Root />
+    </React.StrictMode>,
     document.getElementById('root')
 );
