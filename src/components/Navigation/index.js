@@ -113,7 +113,6 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
         setTimeout(() => {
             setLoading(false);
             const animations = mergeSortAnimations(array.slice());
-            console.table(animations);
             animator(animations, 3);
         }, 300);
     };
@@ -144,7 +143,6 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
         setTimeout(() => {
             setLoading(false);
             const animations = quickSortAnimations(array.slice());
-            console.table(animations);
             animator(animations, 3);
         }, 300);
     };
@@ -155,7 +153,6 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
         setTimeout(() => {
             setLoading(false);
             const animations = selectionSortAnimations(array.slice());
-            console.table(animations);
             animator(animations, 3);
         }, 300);
     };
