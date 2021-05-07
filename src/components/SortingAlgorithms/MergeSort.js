@@ -19,15 +19,24 @@ const mergeSort = (mainArray, start, middle, end, copyArr, animations) => {
     let j = middle + 1;
 
     while (i <= middle && j <= end) {
+        // first push to change color to selected array color
         animations.push([i, j]);
-        animations.push([i, j]);
+        // second push to change color back to original color
 
         if (copyArr[i] <= copyArr[j]) {
-            animations.push([k, copyArr[i]]);
+            animations.push([
+                [k, copyArr[i]],
+                [k, copyArr[i]],
+            ]);
+            animations.push([i, j]);
             mainArray[k] = copyArr[i];
             i++;
         } else {
-            animations.push([k, copyArr[j]]);
+            animations.push([
+                [k, copyArr[j]],
+                [k, copyArr[j]],
+            ]);
+            animations.push([i, j]);
             mainArray[k] = copyArr[j];
             j++;
         }
@@ -36,8 +45,11 @@ const mergeSort = (mainArray, start, middle, end, copyArr, animations) => {
 
     while (i <= middle) {
         animations.push([i, i]);
+        animations.push([
+            [k, copyArr[i]],
+            [k, copyArr[i]],
+        ]);
         animations.push([i, i]);
-        animations.push([k, copyArr[i]]);
         mainArray[k] = copyArr[i];
         k++;
         i++;
@@ -45,8 +57,11 @@ const mergeSort = (mainArray, start, middle, end, copyArr, animations) => {
 
     while (j <= end) {
         animations.push([j, j]);
+        animations.push([
+            [k, copyArr[j]],
+            [k, copyArr[j]],
+        ]);
         animations.push([j, j]);
-        animations.push([k, copyArr[j]]);
         mainArray[k] = copyArr[j];
         k++;
         j++;

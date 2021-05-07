@@ -56,7 +56,7 @@ const SortingVisualizer = ({ loading, showHelper }) => {
                             type="range"
                             min="-153"
                             max="-3"
-                            step="-50"
+                            step="25"
                             value={animationSpeed}
                         ></input>
                     </div>

@@ -52,7 +52,8 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
             // the color change element will be different depending on the sorting algo
             // denoted by the colorChangeLength
             // see individual sorting algos for more details
-            const isColorChange = i % colorChangeLength < 2;
+            const isColorChange =
+                i % colorChangeLength === 0 || i % colorChangeLength === 2;
             if (isColorChange) {
                 // animations[i] contains different elements depending on if it is a color change element or not
                 const [barOneIdx, barTwoIdx] = animations[i];
@@ -69,9 +70,14 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
             } else {
                 setTimeout(() => {
                     // notice how animations[i][1] is different than above code
-                    const [barOneIdx, newHeight] = animations[i];
+                    const [
+                        [barOneIdx, newHeight],
+                        [barTwoIdx, barTwoHeight],
+                    ] = animations[i];
                     const barOneStyle = arrayBars[barOneIdx].style;
+                    const barTwoStyle = arrayBars[barTwoIdx].style;
                     barOneStyle.height = `${newHeight}px`;
+                    barTwoStyle.height = `${barTwoHeight}px`;
                 }, i * Math.abs(animationSpeed));
             }
         }
@@ -107,6 +113,7 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
         setTimeout(() => {
             setLoading(false);
             const animations = mergeSortAnimations(array.slice());
+            console.table(animations);
             animator(animations, 3);
         }, 300);
     };
@@ -117,7 +124,7 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
         setTimeout(() => {
             setLoading(false);
             const animations = bubbleSortAnimations(array.slice());
-            animator(animations, 4);
+            animator(animations, 3);
         }, 300);
     };
 
@@ -127,7 +134,7 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
         setTimeout(() => {
             setLoading(false);
             const animations = insertionSortAnimations(array.slice());
-            animator(animations, 4);
+            animator(animations, 3);
         }, 300);
     };
 
@@ -137,7 +144,8 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
         setTimeout(() => {
             setLoading(false);
             const animations = quickSortAnimations(array.slice());
-            animator(animations, 4);
+            console.table(animations);
+            animator(animations, 3);
         }, 300);
     };
 
@@ -147,7 +155,8 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
         setTimeout(() => {
             setLoading(false);
             const animations = selectionSortAnimations(array.slice());
-            animator(animations, 4);
+            console.table(animations);
+            animator(animations, 3);
         }, 300);
     };
 

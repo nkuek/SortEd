@@ -6,17 +6,21 @@ export const selectionSortAnimations = (array) => {
         let smallestIdx = sortedIdx;
         for (let i = sortedIdx + 1; i < array.length; i++) {
             animations.push([sortedIdx, i]);
+            animations.push([
+                [sortedIdx, array[sortedIdx]],
+                [sortedIdx, array[sortedIdx]],
+            ]);
             animations.push([sortedIdx, i]);
-            if (i < array.length - 1) {
-                animations.push([sortedIdx, array[sortedIdx]]);
-                animations.push([sortedIdx, array[sortedIdx]]);
-            }
             if (array[i] < array[smallestIdx]) {
                 smallestIdx = i;
             }
         }
-        animations.push([sortedIdx, array[smallestIdx]]);
-        animations.push([smallestIdx, array[sortedIdx]]);
+        animations.push([sortedIdx, smallestIdx]);
+        animations.push([
+            [sortedIdx, array[smallestIdx]],
+            [smallestIdx, array[sortedIdx]],
+        ]);
+        animations.push([sortedIdx, smallestIdx]);
         swap(array, smallestIdx, sortedIdx);
         sortedIdx++;
     }
