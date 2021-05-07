@@ -6,7 +6,6 @@ import { useMediaQuery } from 'react-responsive';
 import { useTheme } from './context/ThemeContext';
 
 function App() {
-    console.log(process.env.NODE_ENV);
     document.body.style.height = `${window.innerHeight}px`;
     const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
     const { array, arrayLength, setArrayLength, resetArray } = useArray();
