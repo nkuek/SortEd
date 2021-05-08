@@ -4,16 +4,16 @@ export const insertionSortAnimations = (array) => {
 
     for (let i = 1; i < array.length; i++) {
         let j = i;
-        while (j > 0) {
+        while (j > 0 && array[j] < array[j - 1]) {
             // first push to change color to selected array color
             animations.push([j, j - 1]);
-            // second push to change color back to the original color
             if (array[j] < array[j - 1]) {
                 // animating the swap
                 animations.push([
                     [j, array[j - 1]],
                     [j - 1, array[j]],
                 ]);
+                // second push to change color back to the original color
                 animations.push([j, j - 1]);
                 swap(array, j, j - 1);
             } else {
@@ -22,6 +22,7 @@ export const insertionSortAnimations = (array) => {
                     [j, array[j]],
                     [j, array[j]],
                 ]);
+                // second push to change color back to the original color
                 animations.push([j, j - 1]);
             }
             j--;
