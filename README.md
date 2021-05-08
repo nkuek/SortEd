@@ -3,7 +3,7 @@
 A fun, interactive way to learn a few popular sorting algorithms!
 
 ## About the Project
-<img src="https://media.giphy.com/media/bD867j5eimIyRYXmKS/giphy.gif" />
+<img src="https://media.giphy.com/media/UNDf13BPU0cTddcINp/giphy.gif" />
 
 ### Technologies
   * [React](https://reactjs.org/)
