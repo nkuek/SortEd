@@ -16,7 +16,7 @@
     position: absolute;
     height: calc(100% - 80px);
     width: 100%;
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
     z-index: 1;
     font-size: 1.5em;
@@ -29,7 +29,7 @@
     width: 100%;
     z-index: 1;
     margin-top: 1em;
-    color: var(--font-color)
+    color: var(--font-color);
 }
 
 .array-theme {
@@ -38,7 +38,7 @@
     align-items: center;
     position: relative;
     margin-right: 1em;
-    top: -.5em;
+    top: -0.5em;
 }
 
 .array-size-container > label {
@@ -48,7 +48,7 @@
 
 .array-speed-container > label {
     margin-left: 1em;
-    margin-right: .3em
+    margin-right: 0.3em;
 }
 
 .array-bar {
