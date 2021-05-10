@@ -7,14 +7,13 @@ export const bubbleSortAnimations = (array, animations = []) => {
         for (let i = 0; i < array.length - counter; i++) {
             // push first time to change color to the selected array color
             animations.push([i, i + 1]);
-            // push second time to change the color back to the original color
             if (array[i] > array[i + 1]) {
                 // push in the index and the new height of that index (essentially animating the swap)
                 animations.push([
                     [i, array[i + 1]],
                     [i + 1, array[i]],
                 ]);
-                // animations.push([i + 1, array[i]]);
+                // second push will change the color back to its original color
                 animations.push([i, i + 1]);
                 swap(array, i, i + 1);
                 isSorted = false;
