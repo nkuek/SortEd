@@ -61,6 +61,18 @@
     font-size: 1.5em;
 }
 
+.cancel-button {
+    cursor: pointer;
+    padding: 0.5em 1em;
+    background-color: var(--button-color);
+    border-radius: 3px;
+}
+
+.cancel-button:hover {
+    background-color: var(--button-hover);
+    color: var(--button-font-color);
+}
+
 @media only screen and (max-width: 750px) {
     .helper-container {
         display: none;

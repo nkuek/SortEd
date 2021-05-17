@@ -87,7 +87,11 @@ function App() {
                 sorting={sorting}
                 setSorting={setSorting}
             />
-            <SortingVisualizer loading={loading} showHelper={showHelper} />
+            <SortingVisualizer
+                loading={loading}
+                showHelper={showHelper}
+                sorting={sorting}
+            />
         </>
     );
 }

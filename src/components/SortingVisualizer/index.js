@@ -16,7 +16,7 @@ const CustomSelect = withStyles({
     },
 })(Select);
 
-const SortingVisualizer = ({ loading, showHelper }) => {
+const SortingVisualizer = ({ loading, showHelper, sorting }) => {
     const {
         array,
         arrayLength,
@@ -61,6 +61,16 @@ const SortingVisualizer = ({ loading, showHelper }) => {
                         ></input>
                     </div>
                 </div>
+                {sorting && (
+                    <div className="cancel-container">
+                        <div
+                            className="cancel-button"
+                            onClick={() => window.location.reload()}
+                        >
+                            Cancel
+                        </div>
+                    </div>
+                )}
                 {showHelper && (
                     <div className="helper-container">
                         <div>Click on a sorting button to begin!</div>
