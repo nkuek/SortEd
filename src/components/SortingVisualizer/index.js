@@ -41,6 +41,10 @@ const SortingVisualizer = ({ loading, showHelper, sorting }) => {
                         <input
                             onChange={(e) => {
                                 setArrayLength(e.target.value);
+                                localStorage.setItem(
+                                    'array-size',
+                                    JSON.stringify(e.target.value)
+                                );
                             }}
                             type="range"
                             min="10"
@@ -52,7 +56,13 @@ const SortingVisualizer = ({ loading, showHelper, sorting }) => {
                     <div className="array-speed-container">
                         <label>Speed</label>
                         <input
-                            onChange={(e) => setAnimationSpeed(e.target.value)}
+                            onChange={(e) => {
+                                setAnimationSpeed(e.target.value);
+                                localStorage.setItem(
+                                    'array-speed',
+                                    JSON.stringify(e.target.value)
+                                );
+                            }}
                             type="range"
                             min="-153"
                             max="-3"

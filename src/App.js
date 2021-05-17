@@ -8,7 +8,13 @@ import { useTheme } from './context/ThemeContext';
 function App() {
     document.body.style.height = `${window.innerHeight}px`;
     const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
-    const { array, arrayLength, setArrayLength, resetArray } = useArray();
+    const {
+        array,
+        arrayLength,
+        setArrayLength,
+        resetArray,
+        setAnimationSpeed,
+    } = useArray();
     const [sorting, setSorting] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -72,6 +78,12 @@ function App() {
         if (array.length > 0) {
             if (localStorage.getItem('theme'))
                 setTheme(JSON.parse(localStorage.getItem('theme')));
+            if (localStorage.getItem('array-size'))
+                setArrayLength(JSON.parse(localStorage.getItem('array-size')));
+            if (localStorage.getItem('array-speed'))
+                setAnimationSpeed(
+                    JSON.parse(localStorage.getItem('array-speed'))
+                );
             setIsLoaded(true);
             document.querySelectorAll('.array-bar').forEach((array) => {
                 array.style.backgroundColor = arrayBarColor;
