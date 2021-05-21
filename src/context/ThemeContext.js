@@ -77,10 +77,10 @@ export const ThemeProvider = ({ children }) => {
             selectedArrayColor: '#ED6B21',
             sortedColor: '#ED6B21',
             fontColor: '#E3D9C6',
-            buttonColor: '#ED6B21',
+            buttonColor: '#575D5E',
             disabledButtonColor: '#828282',
-            buttonHoverColor: '#fc9256',
-            buttonFontColor: '#575d7e',
+            buttonHoverColor: '#ED6B21',
+            buttonFontColor: '#E3d9c6',
         },
     };
 
