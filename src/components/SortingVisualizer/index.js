@@ -89,6 +89,7 @@ const SortingVisualizer = ({ loading, showHelper, sorting }) => {
                 <div className="array-theme">
                     <label>Theme</label>
                     <CustomSelect
+                        disabled={sorting}
                         onChange={(e) => {
                             localStorage.setItem(
                                 'theme',
