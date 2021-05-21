@@ -21,6 +21,7 @@ function App() {
     const [showHelper, setShowHelper] = useState(true);
     const {
         theme,
+        themes,
         setTheme,
         backgroundColor,
         navBarColor,
@@ -76,8 +77,12 @@ function App() {
 
     useEffect(() => {
         if (array.length > 0) {
-            if (localStorage.getItem('theme'))
+            if (
+                localStorage.getItem('theme') &&
+                themes[JSON.parse(localStorage.getItem('theme'))]
+            ) {
                 setTheme(JSON.parse(localStorage.getItem('theme')));
+            }
             if (localStorage.getItem('array-size'))
                 setArrayLength(JSON.parse(localStorage.getItem('array-size')));
             if (localStorage.getItem('array-speed'))
