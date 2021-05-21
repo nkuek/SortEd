@@ -7,10 +7,10 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState('default');
+    const [theme, setTheme] = useState('Default');
 
     const themes = {
-        default: {
+        Default: {
             backgroundColor: 'white',
             navBarColor: 'black',
             arrayBarColor: 'black',
@@ -22,7 +22,7 @@ export const ThemeProvider = ({ children }) => {
             buttonHoverColor: '#bab8b8',
             buttonFontColor: 'black',
         },
-        dracula: {
+        Dracula: {
             backgroundColor: '#282a36',
             navBarColor: '#282a36',
             arrayBarColor: '#bd93f9',
@@ -34,7 +34,7 @@ export const ThemeProvider = ({ children }) => {
             buttonHoverColor: '#50fa7b',
             buttonFontColor: 'black',
         },
-        nautilus: {
+        Nautilus: {
             backgroundColor: '#132237',
             navBarColor: '#132237',
             arrayBarColor: '#1cbaac',
@@ -46,7 +46,7 @@ export const ThemeProvider = ({ children }) => {
             buttonHoverColor: '#ebb723',
             buttonFontColor: 'black',
         },
-        monokai: {
+        Monokai: {
             backgroundColor: '#272822',
             navBarColor: '#272822',
             arrayBarColor: '#A6E22E',
@@ -58,7 +58,7 @@ export const ThemeProvider = ({ children }) => {
             buttonHoverColor: 'white',
             buttonFontColor: 'black',
         },
-        phantom: {
+        Phantom: {
             backgroundColor: '#211333',
             navBarColor: '#211333',
             arrayBarColor: '#eed484',
@@ -70,7 +70,7 @@ export const ThemeProvider = ({ children }) => {
             buttonHoverColor: '#2E1A47',
             buttonFontColor: '#EEd484',
         },
-        carbon: {
+        Carbon: {
             backgroundColor: '#575D5E',
             navBarColor: '#575D5E',
             arrayBarColor: '#E3D9C6',
@@ -100,6 +100,7 @@ export const ThemeProvider = ({ children }) => {
     return (
         <ThemeContext.Provider
             value={{
+                themes,
                 theme,
                 setTheme,
                 backgroundColor,

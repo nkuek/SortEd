@@ -25,7 +25,7 @@ const SortingVisualizer = ({ loading, showHelper, sorting }) => {
         setAnimationSpeed,
     } = useArray();
 
-    const { theme, setTheme } = useTheme();
+    const { theme, setTheme, themes } = useTheme();
 
     return (
         <>
@@ -98,12 +98,11 @@ const SortingVisualizer = ({ loading, showHelper, sorting }) => {
                         }}
                         value={theme}
                     >
-                        <MenuItem value="default">Default</MenuItem>
-                        <MenuItem value="dracula">Dracula</MenuItem>
-                        <MenuItem value="nautilus">Nautilus</MenuItem>
-                        <MenuItem value="monokai">Monokai</MenuItem>
-                        <MenuItem value="phantom">Phantom</MenuItem>
-                        <MenuItem value="carbon">Carbon</MenuItem>
+                        {Object.keys(themes).map((theme) => (
+                            <MenuItem key={theme} value={theme}>
+                                {theme}
+                            </MenuItem>
+                        ))}
                     </CustomSelect>
                 </div>
             </div>
