@@ -103,6 +103,7 @@ const SortingVisualizer = ({ loading, showHelper, sorting }) => {
                         <MenuItem value="nautilus">Nautilus</MenuItem>
                         <MenuItem value="monokai">Monokai</MenuItem>
                         <MenuItem value="phantom">Phantom</MenuItem>
+                        <MenuItem value="carbon">Carbon</MenuItem>
                     </CustomSelect>
                 </div>
             </div>

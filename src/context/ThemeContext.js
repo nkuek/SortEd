@@ -70,6 +70,18 @@ export const ThemeProvider = ({ children }) => {
             buttonHoverColor: '#2E1A47',
             buttonFontColor: '#EEd484',
         },
+        carbon: {
+            backgroundColor: '#575D5E',
+            navBarColor: '#575D5E',
+            arrayBarColor: '#E3D9C6',
+            selectedArrayColor: '#ED6B21',
+            sortedColor: '#ED6B21',
+            fontColor: '#E3D9C6',
+            buttonColor: '#ED6B21',
+            disabledButtonColor: '#828282',
+            buttonHoverColor: '#fc9256',
+            buttonFontColor: '#575d7e',
+        },
     };
 
     let {

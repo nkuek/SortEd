@@ -89,7 +89,7 @@ function App() {
                 array.style.backgroundColor = arrayBarColor;
             });
         }
-    }, [array, arrayBarColor, setTheme]);
+    }, [array, arrayBarColor, setTheme, setAnimationSpeed, setArrayLength]);
 
     return (
         <>
