@@ -2,7 +2,7 @@
   "name": "sorting-visualizer",
   "version": "1.0.0",
   "engines": {
-    "node": "14.x"
+    "node": "18.x"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
